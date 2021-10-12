@@ -9,24 +9,24 @@ import java.util.Objects;
 @Entity
 @Table(name = "AccountTransaction")
 public class AccountTransaction implements Serializable {
-    private static final long serialVersionUID = -1420294317019175746L;
 
-    private Long transactionID;
-    private Long accountTypeID;
-    private Long membershipID;
-    private Long amount;
-    private LocalDate transDate;
+
+    private Long ACCOUNT_TRA_ID ;
+    private Long ACCOUNT_TYPE_ID;
+    private Long MEMBER_ID;
+    private Long AMOUNT;
+    private LocalDate TRANSACTION_DATE;
 
     public AccountTransaction() {
 
     }
 
     public AccountTransaction(long transactionID, long accountTypeID, long membershipID, long amount, LocalDate transDate) {
-        this.transactionID = transactionID;
-        this.accountTypeID = accountTypeID;
-        this.membershipID = membershipID;
-        this.amount = amount;
-        this.transDate = transDate;
+        this.ACCOUNT_TRA_ID = transactionID;
+        this.ACCOUNT_TYPE_ID = accountTypeID;
+        this.MEMBER_ID = membershipID;
+        this.AMOUNT = amount;
+        this.TRANSACTION_DATE = transDate;
 
     }
 
@@ -35,53 +35,53 @@ public class AccountTransaction implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AccountSystem_SEQ")
     @Column(name = "transactionID")
     public Long getTransactionID() {
-        return transactionID;
+        return ACCOUNT_TRA_ID;
     }
 
     @Column(name = "accountTypeID")
     public Long getAccountTypeID() {
-        return accountTypeID;
+        return ACCOUNT_TYPE_ID;
     }
 
     @Column(name = "membershipID")
     public Long getMembershipID() {
-        return membershipID;
+        return MEMBER_ID;
     }
 
     @Column(name = "amount")
     public Long getAmount() {
-        return amount;
+        return AMOUNT;
     }
 
     @Column(name = "transDate")
     public LocalDate getTransDate() {
-        return transDate;
+        return TRANSACTION_DATE;
     }
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "accountTypeID")
     public long getAccountId() {
-        return accountTypeID;
+        return ACCOUNT_TYPE_ID ;
     }
 
     public void setTransactionID(long transactionID) {
-        this.transactionID = transactionID;
+        this.ACCOUNT_TRA_ID = transactionID;
     }
 
     public void setMembershipID(long membershipID) {
-        this.membershipID = membershipID;
+        this.MEMBER_ID = membershipID;
     }
 
     public void setAccountTypeID(long accountTypeID) {
-        this.accountTypeID = accountTypeID;
+        this.ACCOUNT_TYPE_ID = accountTypeID;
     }
 
     public void setAmount(long amount) {
-        this.amount = amount;
+        this.AMOUNT = amount;
     }
 
     public void setTransDate(LocalDate transDate) {
-        this.transDate = transDate;
+        this.TRANSACTION_DATE = transDate;
     }
 
     @Override
@@ -94,17 +94,17 @@ public class AccountTransaction implements Serializable {
 
         }
         AccountTransaction that = (AccountTransaction) o;
-        return Objects.equals(transactionID, that.transactionID) && Objects.equals(accountTypeID, that.accountTypeID) && Objects.equals(membershipID, that.membershipID) && Objects.equals(amount, that.amount) && Objects.equals(transDate, that.transDate);
+        return Objects.equals(ACCOUNT_TRA_ID, that.ACCOUNT_TRA_ID) && Objects.equals(ACCOUNT_TYPE_ID, that.ACCOUNT_TYPE_ID) && Objects.equals(MEMBER_ID, that.MEMBER_ID) && Objects.equals(AMOUNT, that.AMOUNT) && Objects.equals(TRANSACTION_DATE, that.TRANSACTION_DATE);
     }
 
     @Override
     public String toString() {
         return "AccountTransaction{" +
-                "accountTypeID ='" + accountTypeID + '\'' +
-                "transactionID='" + transactionID + '\'' +
-                ",membershipID='" + membershipID + '\'' +
-                ", amount=" + amount + '\'' +
-                ",transDate=+" + transDate +
+                "accountTypeID ='" + ACCOUNT_TYPE_ID + '\'' +
+                "transactionID='" + ACCOUNT_TRA_ID + '\'' +
+                ",membershipID='" + MEMBER_ID + '\'' +
+                ", amount=" + AMOUNT + '\'' +
+                ",transDate=+" + TRANSACTION_DATE +
                 '}';
     }
 }

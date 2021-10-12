@@ -1,9 +1,13 @@
 package za.ac.nwu.ac.web.sb.Controller;
 
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import za.ac.nwu.domain.GeneralResponse;
+import za.ac.nwu.domain.dto.AccountTypeDto;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
+import za.ac.nwu.ac.Logic.Flow.FetchAccountType;
+import za.ac.nwu.ac.Logic.Flow.CreateAccountTypeFlow;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -16,8 +20,16 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping("account-type")
+@RequestMapping
 public class AccountTyprController {
+
+
+
+
+
+
+
+
 
 
 

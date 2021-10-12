@@ -10,12 +10,12 @@ import java.util.Set;
 @Table(name = "AccountType")
 public class AccountType implements Serializable {
 
-    private static final long serialVersionUID = 3833725316797154577L;
 
-    private Long accountTypeID;
-    private String mnemonic;
-    private String AccountTypeName;
-    private LocalDate creation_Date;
+
+    private Long ACCOUNT_TYPE_ID;
+    private String MNEMONIC;
+    private String ACCOUNT_TYPE_NAME;
+    private LocalDate CREATION_DATE;
 
     private Set<AccountTransaction> AccountTransaction;
 
@@ -24,15 +24,15 @@ public class AccountType implements Serializable {
     }
 
     public AccountType(long accountTypeID, String mnemonic, String AccountTypeName, LocalDate creation_Date) {
-        this.accountTypeID = accountTypeID;
-        this.mnemonic = mnemonic;
-        this.AccountTypeName = AccountTypeName;
-        this.creation_Date = creation_Date;
+        this.ACCOUNT_TYPE_ID = accountTypeID;
+        this.MNEMONIC = mnemonic;
+        this.ACCOUNT_TYPE_NAME = AccountTypeName;
+        this.CREATION_DATE= creation_Date;
     }
 
     public AccountType(String mnemonic, String accountTypeName, LocalDate creation_Date) {
-        this.mnemonic = mnemonic;
-        this.AccountTypeName = accountTypeName;
+        this.MNEMONIC = mnemonic;
+        this.ACCOUNT_TYPE_NAME= accountTypeName;
 
     }
 
@@ -41,24 +41,24 @@ public class AccountType implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "AccountSystem_SEQ")
     @Column(name = "Account_Type_ID")
     public long getAccountId() {
-        return accountTypeID;
+        return ACCOUNT_TYPE_ID;
     }
 
     @Column(name = "AccountTypeName")
     public String getAccountTypeName() {
-        return AccountTypeName;
+        return ACCOUNT_TYPE_NAME;
     }
 
     @Column(name = "mnemonic")
     public String getMnemonic() {
-        return mnemonic;
+        return MNEMONIC;
     }
 
     ;
 
     @Column(name = "creation_Date")
     public LocalDate getCreation_Date() {
-        return creation_Date;
+        return CREATION_DATE;
     }
 
     @OneToMany(targetEntity = AccountTransaction.class, fetch = FetchType.LAZY, mappedBy = "accountTypeID", orphanRemoval = true, cascade = CascadeType.PERSIST)
@@ -67,19 +67,19 @@ public class AccountType implements Serializable {
     }
 
     public void setAccountTypeID(long accountTypeID) {
-        this.accountTypeID = accountTypeID;
+        this.ACCOUNT_TYPE_ID= accountTypeID;
     }
 
     public void setMnemonic(String mnemonic) {
-        this.mnemonic = mnemonic;
+        this.MNEMONIC = mnemonic;
     }
 
     public void setAccountTypeName(String accountTypeName) {
-        this.AccountTypeName = accountTypeName;
+        this.ACCOUNT_TYPE_NAME = accountTypeName;
     }
 
     public void setCreation_Date(LocalDate creation_Date) {
-        this.creation_Date = creation_Date;
+        this.CREATION_DATE = creation_Date;
     }
 
 
@@ -93,21 +93,21 @@ public class AccountType implements Serializable {
 
         }
         AccountType that = (AccountType) o;
-        return Objects.equals(mnemonic, that.mnemonic) && Objects.equals(AccountTypeName, that.AccountTypeName) && Objects.equals(creation_Date, that.creation_Date);
+        return Objects.equals(MNEMONIC, that.MNEMONIC) && Objects.equals(ACCOUNT_TYPE_NAME, that.ACCOUNT_TYPE_NAME) && Objects.equals(CREATION_DATE, that.CREATION_DATE);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(accountTypeID, mnemonic, AccountTypeName, creation_Date);
+        return Objects.hash(ACCOUNT_TYPE_ID, MNEMONIC, ACCOUNT_TYPE_NAME, CREATION_DATE);
     }
 
     @Override
     public String toString() {
         return "AccountType{" +
-                "accountTypeID ='" + accountTypeID + '\'' +
-                "mnemonic='" + mnemonic + '\'' +
-                ",AccountTypeName='" + AccountTypeName + '\'' +
-                ", creation_Date=" + creation_Date +
+                "accountTypeID ='" + ACCOUNT_TYPE_ID + '\'' +
+                "mnemonic='" + MNEMONIC + '\'' +
+                ",AccountTypeName='" + ACCOUNT_TYPE_NAME + '\'' +
+                ", creation_Date=" + CREATION_DATE +
                 '}';
     }
 }
